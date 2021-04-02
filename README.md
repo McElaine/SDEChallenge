@@ -13,6 +13,6 @@ with O(1) additional space complexity.
 
 The provided generic class supports classes that extends Number.class in Java, such as Integer, Float, Double, BigDecimal, Short, and Long, etc.
 
-To ensure high-precision and prevent issues of overflow/underflow issues(such as Float and Double types), the calculation of the moving average 
+To ensure high-precision and prevent overflow/underflow issues in Java(such as Float and Double types), the calculation of the moving average 
 are implemented with BigDecimal type. Default used precision is IEEE 754R Decimal128 format(34 digits). User can also provide desired precision as 
 a parameter upon average calculation.
