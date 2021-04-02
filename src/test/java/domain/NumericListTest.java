@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.springframework.test.util.AssertionErrors.assertEquals;
 import static org.springframework.test.util.AssertionErrors.assertTrue;
 
@@ -13,6 +14,33 @@ public class NumericListTest {
 
     @SuppressWarnings("rawtypes")
     private NumericList list;
+
+    @Test
+    public void initFailTest() {
+        // setup
+
+        // invocation & assertion
+        assertThrows(IllegalStateException.class, () -> new LimitedNumericList<BigDecimal>(-1));
+    }
+
+    @Test
+    public void getAverageOnEmptyListTest() {
+        // setup
+        list = new LimitedNumericList<BigDecimal>(5);
+
+        // invocation & assertion
+        assertThrows(IllegalStateException.class, () -> list.getAverage());
+    }
+
+    @Test
+    public void getElementOutOfBoundTest() {
+        // setup
+        list = new LimitedNumericList<BigDecimal>(5);
+
+        // invocation & assertion
+        assertThrows(IndexOutOfBoundsException.class, () -> list.getNthElement(-1));
+        assertThrows(IndexOutOfBoundsException.class, () -> list.getNthElement(10));
+    }
 
     @Test
     @SuppressWarnings("unchecked")
@@ -153,7 +181,7 @@ public class NumericListTest {
     @SuppressWarnings("unchecked")
     public void getAllNInsertedElementTest() {
         // setup
-        list = new LimitedNumericList<BigDecimal>(5);
+        list = new LimitedNumericList<BigDecimal>();
         list.add(BigDecimal.valueOf(9));
         list.add(BigDecimal.valueOf(5));
         list.add(BigDecimal.valueOf(3));
