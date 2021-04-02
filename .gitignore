@@ -1,0 +1,26 @@
+### Gradle ###
+.gradle/
+build/
+gradlew.bat
+gradlew
+
+### IntelliJ ###
+*.iml
+*.ipr
+*.iws
+.idea/
+
+### Git ###
+.*
+!.gitignore
+!.git*
+*~
+
+### Java ###
+*.class
+
+# Packages #
+*.jar
+*.war
+
+/bin
