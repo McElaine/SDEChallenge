@@ -1,4 +1,4 @@
-# PaytmLabs SDE Challenge
+# PaytmLabs SDE Challenge - coding question
 
 ## Package description
 This package contains an interface, and an implementation of a data structure 
